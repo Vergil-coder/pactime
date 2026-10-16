@@ -19,7 +19,7 @@
   <a href="CONTRIBUTING.md">Contribute</a>
 </p>
 
-Pactime limits how long desktop apps can run each day. Set an allowance, such as two hours, and it tracks running time in the background and closes the app when time is up. A closing delay of up to 30 minutes leaves time to save work or finish a task.
+Pactime is a free, open-source app time limiter for Windows and macOS. Set a daily allowance, such as two hours, and it tracks running time in the background and closes the app when time is up. A closing delay of up to 30 minutes leaves time to save work or finish a task.
 
 It works with games, video players, social apps, and other desktop software. No account is needed.
 
@@ -33,6 +33,11 @@ It works with games, video players, social apps, and other desktop software. No 
 
 Screenshots show the Simplified Chinese interface on macOS with sample usage and allowances.
 
+## When to use Pactime
+
+- Keep games within a daily budget, even when you play in several sessions. Set a two-hour limit for a game and Pactime adds up its running time throughout the day.
+- Give video players or social apps their own allowances. For example, limit a social app to 30 minutes without using up another app’s time.
+
 ## Features
 
 - Set a daily allowance for each app. Multiple processes covered by one rule share a timer.
@@ -43,14 +48,14 @@ Screenshots show the Simplified Chinese interface on macOS with sample usage and
 
 ## Download
 
-Visit [Releases](https://github.com/Vergil-coder/pactime/releases) and expand **Assets** for the version you want to download. If no public installer is available yet, [run Pactime from source](#development).
+Current preview: [v0.3.6](https://github.com/Vergil-coder/pactime/releases/tag/v0.3.6). Download a package below, or browse [all releases](https://github.com/Vergil-coder/pactime/releases) for other versions and release notes.
 
 | Platform | Requirements | Files |
 | --- | --- | --- |
-| Windows | Windows 10/11, x64 | `.exe` installer or full application `.zip` |
-| macOS | macOS 12+, Apple Silicon | `.dmg` or application `.zip` |
+| Windows | Windows 10/11, x64 | [Installer (.exe)](https://github.com/Vergil-coder/pactime/releases/download/v0.3.6/Pactime-0.3.6-Windows-x64.exe) · [ZIP](https://github.com/Vergil-coder/pactime/releases/download/v0.3.6/Pactime-0.3.6-Windows-x64.zip) |
+| macOS | macOS 12+, Apple Silicon | [DMG](https://github.com/Vergil-coder/pactime/releases/download/v0.3.6/Pactime-0.3.6-macOS-arm64.dmg) · [ZIP](https://github.com/Vergil-coder/pactime/releases/download/v0.3.6/Pactime-0.3.6-macOS-arm64.zip) |
 
-Builds for Intel Mac, Linux, iOS, and Android are not currently available.
+[SHA-256 checksums](https://github.com/Vergil-coder/pactime/releases/download/v0.3.6/Pactime-0.3.6-SHA256SUMS.txt) are available for these packages. Builds for Intel Mac, Linux, iOS, and Android are not currently available.
 
 Extract the entire Windows ZIP before running it. Data stays in the local application data directory. GitHub's **Source code** downloads contain the source files. Current Windows builds have no Authenticode signature. Mac builds are ad-hoc signed and not notarized. Check the download source and release notes if the OS blocks the app, and keep OS security protections enabled.
 
@@ -65,7 +70,7 @@ Extract the entire Windows ZIP before running it. Data stays in the local applic
 
 ## Things to know
 
-Pactime counts process running time, including time spent in the background. A launcher downloading files still uses its allowance. It cannot tell when a match, video, or task has finished. Choose the closing delay in advance; the maximum is 30 minutes, and reminders do not offer another extension. Exiting during the delay ends it, and reopening does not grant another delay.
+Pactime cannot tell when a match, video, or task has finished. Choose the closing delay in advance; the maximum is 30 minutes, and reminders do not offer another extension. Exiting during the delay ends it, and reopening does not grant another delay.
 
 Sleep pauses usage counting but does not extend an existing closing deadline. Pactime cannot record usage while it is not running.
 
@@ -74,6 +79,18 @@ Once the deadline passes, Pactime keeps checking for the app and attempts to clo
 Exclusive fullscreen can hide popups, so try the voice or tone reminder beforehand. Pactime is intended for voluntary limits; a device administrator can still stop or uninstall it.
 
 ## FAQ
+
+### Can I set a daily time limit for Steam, WeGame, or an individual game?
+
+Yes. Add the launcher or the game’s executable, then set its daily allowance. A launcher rule with related-process coverage can include games that Pactime identifies as its child processes; it does not automatically cover every game in your library. For a limit on one game, add that game directly. Launcher recognition and process permissions can affect enforcement.
+
+### Does background time count toward the limit?
+
+Yes. Pactime counts how long the selected app’s processes are running, rather than how long its window is in the foreground. Minimizing an app does not pause the timer, and a launcher left downloading still uses its allowance.
+
+### Can I block a website without closing the browser?
+
+Pactime currently limits desktop applications, not individual websites or browser tabs. A browser rule applies to the browser as a whole.
 
 ### What if an app is missing or cannot be closed?
 

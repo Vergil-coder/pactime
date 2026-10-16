@@ -19,7 +19,7 @@
   <a href="CONTRIBUTING.md">参与贡献</a>
 </p>
 
-Pactime 用来限制桌面应用每天的使用时间。比如给某个应用设定每天 2 小时，Pactime 会在后台计时，用完后自动关闭应用。如果需要时间保存文档或结束手头的事，可以提前设置 0–30 分钟的关闭延迟。
+Pactime 是一款免费开源的 Windows / macOS 应用时间限制工具。比如给某个应用设定每天 2 小时，Pactime 会在后台计时，用完后自动关闭应用。如果需要时间保存文档或结束手头的事，可以提前设置 0–30 分钟的关闭延迟。
 
 它适用于游戏、视频、社交等桌面应用，无需注册账号。
 
@@ -33,6 +33,11 @@ Pactime 用来限制桌面应用每天的使用时间。比如给某个应用设
 
 截图为 macOS 简体中文界面，列表中的用时和额度是示例数据。
 
+## 适合哪些场景
+
+- 想控制每天玩游戏的时间，但不一定一次玩完。给游戏设定每天 2 小时，分几次打开也会累计计时。
+- 想分别限制视频、社交等应用。比如给某个社交应用每天 30 分钟，不占用其他应用的额度。
+
 ## 功能
 
 - 每个应用可以分别设置每日限额。同一规则里的多个进程共用一份计时。
@@ -43,14 +48,14 @@ Pactime 用来限制桌面应用每天的使用时间。比如给某个应用设
 
 ## 下载
 
-前往 [Releases 下载页面](https://github.com/Vergil-coder/pactime/releases)，展开对应版本的 **Assets** 查看安装包。如果还没有公开的安装包，可以先[从源码运行](#本地开发)。
+当前预览版为 [v0.3.6](https://github.com/Vergil-coder/pactime/releases/tag/v0.3.6)，可以直接下载下方安装包。其他版本和更新说明见 [Releases 下载页面](https://github.com/Vergil-coder/pactime/releases)。
 
 | 平台 | 系统要求 | 文件 |
 | --- | --- | --- |
-| Windows | Windows 10/11，x64 | `.exe` 安装程序或完整应用 `.zip` |
-| macOS | macOS 12+，Apple Silicon | `.dmg` 或应用 `.zip` |
+| Windows | Windows 10/11，x64 | [安装程序（.exe）](https://github.com/Vergil-coder/pactime/releases/download/v0.3.6/Pactime-0.3.6-Windows-x64.exe) · [ZIP 压缩包](https://github.com/Vergil-coder/pactime/releases/download/v0.3.6/Pactime-0.3.6-Windows-x64.zip) |
+| macOS | macOS 12+，Apple Silicon | [DMG 安装包](https://github.com/Vergil-coder/pactime/releases/download/v0.3.6/Pactime-0.3.6-macOS-arm64.dmg) · [ZIP 压缩包](https://github.com/Vergil-coder/pactime/releases/download/v0.3.6/Pactime-0.3.6-macOS-arm64.zip) |
 
-目前未提供 Intel Mac、Linux、iOS 和 Android 版本。
+可用 [SHA-256 校验文件](https://github.com/Vergil-coder/pactime/releases/download/v0.3.6/Pactime-0.3.6-SHA256SUMS.txt)核对下载的安装包。目前未提供 Intel Mac、Linux、iOS 和 Android 版本。
 
 Windows ZIP 需要完整解压后运行，数据仍保存在本机应用数据目录。GitHub 自动附加的 **Source code** 文件用于下载源码。当前 Windows 安装包尚未提供代码签名，Mac 包使用本地临时签名，未完成 Apple 公证。系统可能提示风险或拦截运行，请先核对下载来源和该版本说明，不要关闭系统安全保护。
 
@@ -65,7 +70,7 @@ Windows ZIP 需要完整解压后运行，数据仍保存在本机应用数据�
 
 ## 使用前需要了解
 
-Pactime 按程序运行时间计时，切到后台也会计时，启动器挂着下载文件同样会消耗额度。它无法判断一场对局、一个视频或一项工作何时结束；关闭延迟需要在规则里提前设置，最多 30 分钟，到点后不能再次延长。延迟期间提前退出应用，会结束当天的这次延迟，重开后仍会受到限制。
+Pactime 无法判断一场对局、一个视频或一项工作何时结束；关闭延迟需要在规则里提前设置，最多 30 分钟，到点后不能再次延长。延迟期间提前退出应用，会结束当天的这次延迟，重开后仍会受到限制。
 
 电脑睡眠时不扣每日额度，但已经开始的关闭延迟不会推后。Pactime 没有运行时，无法补记这段时间的应用用时。
 
@@ -74,6 +79,18 @@ Pactime 按程序运行时间计时，切到后台也会计时，启动器挂着
 独占全屏可能挡住弹窗，可以提前试听语音或提示音。Pactime 适合主动控制自己的使用时间，设备管理员仍然可以结束或卸载它。
 
 ## 常见问题
+
+### 可以限制 Steam、WeGame 或某个游戏每天的使用时间吗？
+
+可以，添加启动器或游戏的实际程序，再设置每日额度。启动器规则开启「关联程序」后，可以一起限制 Pactime 识别到的子进程，但不代表自动覆盖游戏库里的所有游戏。如果只想限制某一个游戏，直接添加该游戏即可。实际效果会受到启动器识别和进程权限的影响。
+
+### 切到后台或最小化，还会计时吗？
+
+会。Pactime 统计所选应用的进程运行时间，不只计算窗口在前台的时间。最小化不会暂停计时，启动器留在后台下载文件也会消耗额度。
+
+### 能只限制某个网站，不关闭浏览器吗？
+
+目前只能限制桌面应用，不能单独限制网站或浏览器标签页。给浏览器添加规则，会限制整个浏览器。
 
 ### 应用不在列表里，或者无法关闭？
 
