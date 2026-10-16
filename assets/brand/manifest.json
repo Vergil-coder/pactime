@@ -1,0 +1,39 @@
+{
+  "name": "Pactime",
+  "direction": "Interlock",
+  "sources": {
+    "mark.svg": "e2875fcbf7b1f6c07c3c323312d326df9c1037de137472fda11fcbe13ea29776",
+    "mark-inverse.svg": "74394cfa618c4cd0bb7a8ad096721b5956c0255573220990286c9fb7ef2c3d85",
+    "mark-small.svg": "422d0b3389356960b4ee1d61ce370a20287262c78592ec489e6e2b6d07dcee68",
+    "mark-small-inverse.svg": "02d12f52265f0a0853e1e3959ffa725159385b6d20d7039a882dd264bd88902e",
+    "wordmark.svg": "b436150b43ef1abff00345b4a48f937d07474764824e66eeb9f5ab23f3366f9f",
+    "wordmark-inverse.svg": "d232f977d3267565ba43d8a3f9b78d3ff2e855de6674e09559c144da3e034c63",
+    "logo-horizontal.svg": "31233fd0fecf736de28c63b3f5a71f7be12afbe1e0db118db9cdb28909444407",
+    "logo-horizontal-inverse.svg": "e36deedd4721792c9691d9f0ea9680a60817d034ed21a013bf50731d84328716",
+    "app-icon-rounded.svg": "c937257b8e2167e7d3e3d59886fc3c69f2cd9f18aedf7db422f253fa9fee0d73",
+    "app-icon-square.svg": "6f5933e28cfbb4cd54dae62a5179fd045a8553a18042aec364cc859531655586",
+    "manrope.ttf": "b9584e099e0e7f1e1e914c3037aabb9010c50346a3ce8df5eeeeecc0563044d8",
+    "OFL-Manrope.txt": "d6a309fcfb963d329a93baf9df66fa5f3c23a4be2b5f67edf24d6cafecde12ac",
+    "OFL-Instrument-Serif.txt": "b6b2292aa580937fb63796878d65a027a27f8c3db2d97601d0c34d9031f4ca17",
+    "brand.json": "38aea27ab9c3655639346187c7b34937e3ac187acac29c32a26da270c00669ef"
+  },
+  "generated": [
+    "assets/icon.png",
+    "assets/icon-mac.png",
+    "assets/brand/app-icon-square.png",
+    "assets/tray.png",
+    "assets/trayTemplate.png",
+    "assets/trayTemplate@2x.png",
+    "public/favicon.png",
+    "assets/icon.ico"
+  ],
+  "windowsFrames": [
+    16,
+    24,
+    32,
+    48,
+    64,
+    128,
+    256
+  ]
+}

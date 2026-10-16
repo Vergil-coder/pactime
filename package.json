@@ -1,0 +1,113 @@
+{
+  "name": "pactime-app-limits",
+  "version": "0.3.6",
+  "private": true,
+  "type": "module",
+  "description": "Pactime：本地运行的 Windows / macOS 应用每日限额工具",
+  "author": {
+    "name": "快跑啊小卢_",
+    "url": "https://github.com/Vergil-coder"
+  },
+  "license": "GPL-3.0-only",
+  "main": "dist-desktop/main.cjs",
+  "scripts": {
+    "postinstall": "install-electron",
+    "dev": "node scripts/dev.mjs",
+    "dev:web": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build && node scripts/build-desktop.mjs",
+    "typecheck": "tsc --noEmit",
+    "start": "electron .",
+    "dist:win": "npm run build && electron-builder --win nsis zip --x64",
+    "dist:mac": "npm run build && node scripts/dist-mac.mjs",
+    "brand:assets": "node scripts/build-brand-assets.mjs"
+  },
+  "dependencies": {
+    "lucide-react": "^0.468.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "@types/node": "^22.18.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^6.0.0",
+    "electron": "44.7.0",
+    "electron-builder": "26.15.3",
+    "esbuild": "^0.28.0",
+    "typescript": "^5.9.3",
+    "vite": "8.3.4"
+  },
+  "build": {
+    "appId": "org.yuliang.applimits",
+    "productName": "Pactime",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "dist-desktop/**/*",
+      "assets/**/*",
+      "package.json",
+      "LICENSE",
+      "!dist-desktop/**/*.map",
+      "!node_modules/**/*",
+      "!assets/screenshots/**/*"
+    ],
+    "asar": true,
+    "win": {
+      "target": [
+        "nsis",
+        "zip"
+      ],
+      "icon": "assets/icon.ico",
+      "artifactName": "Pactime-${version}-Windows-${arch}.${ext}",
+      "extraFiles": [
+        {
+          "from": "LICENSE",
+          "to": "LICENSE.txt"
+        },
+        {
+          "from": "README.md",
+          "to": "README.md"
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "deleteAppDataOnUninstall": false,
+      "createDesktopShortcut": true,
+      "shortcutName": "Pactime"
+    },
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "category": "public.app-category.productivity",
+      "identity": "-",
+      "minimumSystemVersion": "12.0",
+      "artifactName": "Pactime-${version}-macOS-${arch}.${ext}",
+      "extraResources": [
+        {
+          "from": "dist-native/process-helper",
+          "to": "process-helper"
+        },
+        {
+          "from": "LICENSE",
+          "to": "LICENSE.txt"
+        },
+        {
+          "from": "README.md",
+          "to": "README.md"
+        }
+      ],
+      "icon": "dist-native/icon-mac.png",
+      "timestamp": "none"
+    },
+    "afterPack": "scripts/after-pack.cjs"
+  }
+}

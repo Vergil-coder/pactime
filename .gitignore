@@ -1,0 +1,55 @@
+# Dependencies and generated builds
+node_modules/
+dist/
+dist-desktop/
+dist-native/
+release/
+*.tsbuildinfo
+
+# Local caches and diagnostic output
+.cache/
+.vite/
+.eslintcache
+test-results/
+playwright-report/
+*.log
+.runtime-downloads/
+.playwright-cli/
+
+# Editor and operating-system files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+._*
+Thumbs.db
+Desktop.ini
+
+# Local configuration, signing material, and exported application state
+.env
+.env.*
+!.env.example
+*.p12
+*.pfx
+*.p8
+*.pem
+*.key
+*.keystore
+*.jks
+*.mobileprovision
+*.provisionprofile
+state.json
+state.backup.json
+state.next.json
+
+# Local experiments, design reviews, and generated screenshots
+/promo/
+/output/
+/.impeccable/
+/.impeccable.md
+/public/brand/
+/docs/
+/PRODUCT.md
+/pactime-private-archive/

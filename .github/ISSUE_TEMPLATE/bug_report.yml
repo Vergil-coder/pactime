@@ -1,0 +1,56 @@
+name: Bug report / 问题反馈
+description: Report a reproducible problem in Pactime.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please redact personal paths and window titles. For vulnerabilities, follow SECURITY.md instead of posting exploit details here.
+        请先遮住私人信息；安全漏洞请按 SECURITY.md 私密报告。
+  - type: input
+    id: version
+    attributes:
+      label: Pactime version / 版本
+      placeholder: e.g. 0.3.5, installed build or development
+    validations:
+      required: true
+  - type: input
+    id: system
+    attributes:
+      label: OS and architecture / 系统与架构
+      placeholder: e.g. Windows 11 x64, macOS 15 Apple Silicon
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce / 重现步骤
+      description: Include the selected application and rule settings, using redacted paths if needed.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior / 预期表现
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior and latest error / 实际表现与最新错误
+      description: A reminder appearing does not prove that the application closed. Describe both.
+    validations:
+      required: true
+  - type: dropdown
+    id: privilege
+    attributes:
+      label: Windows privilege / Windows 运行权限
+      options:
+        - Not applicable / 非 Windows
+        - Standard / 普通权限
+        - Administrator / 管理员
+        - Unsure / 不确定
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Screenshots and other context / 截图与补充信息
+      description: For closure problems, say whether the target also runs as administrator. Remove private records before attaching files.

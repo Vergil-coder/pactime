@@ -1,0 +1,28 @@
+name: Feature request / 功能建议
+description: Explain the situation you want Pactime to handle.
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to do? / 你想解决什么问题？
+      description: Describe a concrete situation and the current limitation.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior / 希望的行为
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives and trade-offs / 替代办法与影响
+      description: Consider timing, ability to bypass a limit, permissions, privacy, and background resource use.
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Before submitting / 提交前
+      options:
+        - label: I checked the README and existing issues for this request.
+          required: true

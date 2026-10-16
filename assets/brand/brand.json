@@ -1,0 +1,39 @@
+{
+  "name": "Pactime",
+  "direction": "Interlock",
+  "mark": "mark.svg",
+  "wordmark": "wordmark.svg",
+  "wordmarkInverse": "wordmark-inverse.svg",
+  "font": {
+    "family": "Manrope",
+    "wordmarkWeight": 400,
+    "license": "OFL-Manrope.txt",
+    "wordmarkFamily": "Instrument Serif",
+    "wordmarkLicense": "OFL-Instrument-Serif.txt"
+  },
+  "colors": {
+    "brand": "#CF542D",
+    "ink": "#292521",
+    "paper": "#EEE8DF",
+    "symbol": "#FFF6EC",
+    "uiAccent": "#AE3C1B",
+    "uiAccentDark": "#FC9978"
+  },
+  "tagline": {
+    "en": "Your time. On your terms.",
+    "zh": "为时间，定下自己的约定。"
+  },
+  "chineseName": null,
+  "legacyCompatibility": {
+    "appId": "org.yuliang.applimits",
+    "packagedDataName": "yuliang-app-limits",
+    "developmentDataName": "yuliang-app-limits-development"
+  },
+  "logoHorizontal": "logo-horizontal.svg",
+  "logoHorizontalInverse": "logo-horizontal-inverse.svg",
+  "logoHorizontalComposition": "Editorial: typographic split P with serif foot + outlined actime",
+  "logoHorizontalDirection": "Editorial",
+  "markSmall": "mark-small.svg",
+  "markSmallInverse": "mark-small-inverse.svg",
+  "markSource": "../../scripts/build-interlock-masters.mjs"
+}

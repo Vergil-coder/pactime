@@ -1,0 +1,12 @@
+import { spawn } from 'node:child_process';
+import { createServer } from 'vite';
+import { build } from 'esbuild';
+import electron from 'electron';
+import './build-native.mjs';
+const server = await createServer({ server: { host: '127.0.0.1', strictPort: false } }); await server.listen();
+const devUrl = server.resolvedUrls.local[0].replace(/\/$/, '');
+await build({ entryPoints: ['src/desktop/main.ts', 'src/desktop/preload.ts'], bundle: true, platform: 'node', target: 'node22', format: 'cjs', outdir: 'dist-desktop', outExtension: { '.js': '.cjs' }, external: ['electron'], sourcemap: true });
+console.log(`桌面开发模式：${devUrl}（界面修改自动刷新，桌面主进程修改后重启）`);
+const child = spawn(electron, ['.'], { stdio: 'inherit', env: { ...process.env, PACTIME_DEV_URL: devUrl } });
+child.on('exit', async () => { await server.close(); process.exit(0); });
+process.on('SIGINT', () => child.kill('SIGTERM'));
