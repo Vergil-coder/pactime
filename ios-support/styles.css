@@ -81,9 +81,13 @@ a:focus-visible {
   font-size:14px;
 }
 .language {
-  margin-top:28px;
-  padding-top:24px;
-  border-top:1px solid #e5e3dd;
+  display:none;
+}
+.language:target {
+  display:block;
+}
+body:has(.language:target) section[lang="en"] {
+  display:none;
 }
 li {
   margin-bottom:10px;
